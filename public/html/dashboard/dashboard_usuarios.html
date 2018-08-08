@@ -92,57 +92,131 @@
         </section>
         <section id="sct_registrar" class="popup-bg">
             <!-- Formulario que aparece -->
-            <form class="popup-content">
+            <form class="popup-content scroll">
                 <h1 class="title">Registrar Usuarios</h1>
 
-                <div class="scroll">
+                <div class="form">
+                    <input type="hidden" id="txtId">
 
                     <div class="div-foto">
                         <img src="../../img/default-avatar.png" alt="Foto" id="txtImagen" class="">
                         <button type="button" id="btnSubirFoto" class="">Subir foto</button>
                     </div>
 
+                    <label for="txtNombre">Nombre</label>
                     <input type="text" id="txtNombre" required placeholder="Nombre del usuario*">
 
+                    <label for="txtPrimerApellido">Primer apellido</label>
                     <input type="text" id="txtPrimerApellido" required placeholder="Primer apellido del usuario*">
 
+                    <label for="txtSegundoApellido">Segundo apellido</label>
                     <input type="text" id="txtSegundoApellido" required placeholder="Segundo apellido del usuario*">
 
+                    <label for="txtCedula">Cédula</label>
                     <input type="number" id="txtCedula" required placeholder="Cedula del usuario*">
 
+                    <label for="dateFecha">Fecha de ingreso</label>
                     <input type="date" id="dateFecha" required autocomplete="Fecha de ingreso a la universidad">
 
+                    <label for="txtCorreo">Correo electónico</label>
                     <input type="text" id="txtCorreo" required placeholder="Correo del usuario*">
 
+                    <label for="txtUbicacion">Teléfono</label>
                     <input type="number" id="txtTelefono" required placeholder="Telefono del usuario*">
 
+                    <label for="txtUbicacion">Dirección exacta</label>
                     <input type="text" id="txtDireccion" required placeholder="Direccion exacta del usuario*">
 
-                    <div id="Ubicacion">
+                    <label for="ubicacion">Ubicación</label>
+                    <div id=ubicacion>
                         <select id="sltProvincia" required>
                             <option value="">--Seleccione una provincia--</option>
-                            <option value="San Jose">San Jose</option>
                         </select>
                         <select id="sltCanton" required>
                             <option value="">--Seleccione un cantón-</option>
-                            <option value="San Jose">San Jose</option>
                         </select>
                         <select id="sltDistrito" required>
-                            <option value="La Merced">La Merced</option>
+                            <option value="">--Seleccione un distrito--</option>
                         </select>
-
                     </div>
 
-                    <input type="text" id="txtRol" required placeholder="Rol*">
-                    <datalist id="rol">
-                        <option value="Asistente"></option>
-                        <option value="Profesor"></option>
-                        <option value="Asistente de decanatura"></option>
-                        <option value="Decanatura"></option>
-                        <option value="Rector"></option>
-                    </datalist>
+                    <label for="txtRol">Rol</label>
+                    <select id="txtRol">
+                        <option value="Asistente">Asistente</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Asistente de decanatura">Asist. de decanatura</option>
+                        <option value="Decanatura">Decanatura</option>
+                        <option value="Rector">Rectoría</option>
+                    </select>
+
+                    <label for="txtEstado">Estado</label>
+                    <input type="text" id="txtEstado" value="Activo" required>
 
                     <button type="button" class="button" id="btnRegistrar">Registrar</button>
+                </div>
+            </form>
+            <!-- Formulario que aparece -->
+        </section>
+        <section id="sct_modificar" class="popup-bg">
+            <!-- Formulario que aparece -->
+            <form class="popup-content scroll">
+                <h1 class="title">Modificar Usuario</h1>
+
+                <div class="form">
+
+                    <div class="div-foto">
+                        <img src="../../img/default-avatar.png" alt="Foto" id="txtImagenActual" class="">
+                        <button type="button" id="btnModificarFoto" class="">Modificar foto</button>
+                    </div>
+
+                    <input type="text" id="txtNombreActual" required placeholder="Nombre del usuario*">
+
+                    <input type="text" id="txtPrimerApellidoActual" required placeholder="Primer apellido del usuario*">
+
+                    <input type="text" id="txtSegundoApellidoActual" required placeholder="Segundo apellido del usuario*">
+
+                    <input type="number" id="txtCedulaActual" required placeholder="Cedula del usuario*">
+
+                    <input type="date" id="dateFechaActual" required autocomplete="Fecha de ingreso a la universidad">
+
+                    <input type="text" id="txtCorreoActual" required placeholder="Correo del usuario*">
+
+                    <input type="number" id="txtTelefonoActual" required placeholder="Telefono del usuario*">
+
+                    <input type="text" id="txtDireccionActual" required placeholder="Direccion exacta del usuario*">
+
+                    <label for="ubicacionActual">Ubicación</label>
+                    <div id=ubicacionActual>
+                        <select id="sltProvinciaActual" required>
+                            <option value="">--Seleccione una provincia--</option>
+                        </select>
+                        <select id="sltCantonActual" required>
+                            <option value="">--Seleccione un cantón-</option>
+                        </select>
+                        <select id="sltDistritoActual" required>
+                            <option value="">--Seleccione un distrito--</option>
+                        </select>
+                    </div>
+
+
+                    <label for="txtRolActual">Rol</label>
+                    <select id="txtRolActual">
+                        <option value="Asistente">Asistente</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Asistente de decanatura">Asist. de decanatura</option>
+                        <option value="Decanatura">Decanatura</option>
+                        <option value="Rector">Rectoría</option>
+                    </select>
+
+                    <label for="txtEstadoActual">Estado</label>
+                    <select id="txtEstadoActual" required>
+                        <option value="">Cambie el estado</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+
+                    <button type="button" class="button" id="btnActualizar">Actualizar</button>
+
                 </div>
             </form>
             <!-- Formulario que aparece -->
@@ -160,12 +234,15 @@
 
     <!-- Todos los servicios necesarios -->
     <script src="../../js/usuarios_public/controlador_imagen.js"></script>
+    <script src="../../js/usuarios_public/controlador_actualizar_imagen.js"></script>
     <script src="../../js/usuarios_public/servicio_usuarios.js"></script>
     <!-- Todos los servicios necesarios -->
 
     <!-- Todos los controladores necesarios -->
     <!--<script src="../../js/controlador_sesion.js"></script>-->
     <script src="../../js/controlador_menu.js"></script>
+    <script src="../../js/usuarios_public/controlador_direccion_exacta.js"></script>
+    <script src="../../js/usuarios_public/controlador_actualizar_direccion.js"></script>
     <script src="../../js/usuarios_public/controlador_usuarios.js"></script>
     <!-- Todos los controladores necesarios -->
 

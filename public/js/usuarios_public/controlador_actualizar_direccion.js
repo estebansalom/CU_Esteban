@@ -1,7 +1,7 @@
 'use strict'
 
-let sltProvincia = document.querySelector('#sltProvincia');
-let sltCanton = document.querySelector('#sltCanton');
+let sltProvinciaActual = document.querySelector('#sltProvinciaActual');
+let sltCantonActual = document.querySelector('#sltCantonActual');
 
 let provincias = ['San José', 'Alajuela', 'Cartago', 'Heredia', 'Guanacaste', 'Puntarenas', 'Limón'];
 let cantones = [
@@ -565,11 +565,11 @@ for (let i = 0; i < provincias.length; i++) {
     let opt = document.createElement('option');
     opt.innerHTML = provincias[i];
     opt.value = provincias[i];
-    sltProvincia.appendChild(opt);
+    sltProvinciaActual.appendChild(opt);
 }
-let eleProvincia = document.querySelector('#sltProvincia');
-let eleCanton = document.querySelector('#sltCanton');
-let elDistrito = document.querySelector('#sltDistrito');
+let eleProvincia = document.querySelector('#sltProvinciaActual');
+let eleCanton = document.querySelector('#sltCantonActual');
+let elDistrito = document.querySelector('#sltDistritoActual');
 
 
 eleProvincia.addEventListener('click', llenarCanton);

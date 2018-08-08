@@ -232,7 +232,6 @@ tbody tr{
 table tbody tr:hover{
     background: rgba(68, 27, 73, 0.60);
     color: white;
-    
 }
 
 tbody tr:hover >td span{
@@ -337,8 +336,28 @@ tbody tr td span.fas:hover{
     background-color: rgba(77,84,170, .8);
 }
 
+
+.div-foto{
+    padding: 30px;
+}
+
+.div-foto> button{
+    position: absolute;
+    padding: 10px; 
+    margin: 47px 60px;
+}
+
+#txtImagenActual{
+    height: 130px;
+    width: 130px;
+}
+
 .imageSettings{
     height: 100px;
     width: 100px;
 }
 
+#txtImagen{
+    width: 130px;
+    height: 130px;
+}
