@@ -8,6 +8,7 @@ module.exports.registrar = function (req, res) {
         dirExacta_sede: req.body.dirExacta_sede,
         latitud_sede: req.body.latitud_sede,
         longitud_sede: req.body.longitud_sede,
+        estado_sede: req.body.estado_sede,
     });
 
     nuevaSede.save(function (error) {

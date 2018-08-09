@@ -11,10 +11,12 @@ function registrarSede(paInfoSede){
         dataType : 'json',
         async : false,
         data:{
+            _id: paInfoSede[0],
             nombre_sede : paInfoSede[1],
             dirExacta_sede : paInfoSede[2],
             latitud_sede : paInfoSede[3],
             longitud_sede : paInfoSede[4],
+            estado_sede : paInfoSede[5],
         }
       });
     
@@ -91,6 +93,7 @@ function actualizarSede(paInfoSede){
             dirExacta_sede : paInfoSede[2],
             latitud_sede : paInfoSede[3],
             longitud_sede : paInfoSede[4],
+            estado_sede : paInfoSede[5],
         }
       });
     

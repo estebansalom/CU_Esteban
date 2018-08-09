@@ -18,7 +18,8 @@ module.exports.registrar_usuarios = function (req, res)
         canton_usuario: req.body.canton_usuario,
         distrito_usuario: req.body.distrito_usuario,
         rol_usuario: req.body.rol_usuario,
-        estado_usuario: "Activo"
+        estado_usuario: "Activo",
+        contrasenna_usuario: req.body.contrasenna_usuario
     });
 
     nuevoUsuario.save(function (error)

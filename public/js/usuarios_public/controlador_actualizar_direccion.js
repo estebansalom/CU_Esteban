@@ -3,8 +3,8 @@
 let sltProvinciaActual = document.querySelector('#sltProvinciaActual');
 let sltCantonActual = document.querySelector('#sltCantonActual');
 
-let provincias = ['San José', 'Alajuela', 'Cartago', 'Heredia', 'Guanacaste', 'Puntarenas', 'Limón'];
-let cantones = [
+let provinciasActual = ['San José', 'Alajuela', 'Cartago', 'Heredia', 'Guanacaste', 'Puntarenas', 'Limón'];
+let cantonesActual = [
     'San José',
     'Escazú',
     'Desamparados',
@@ -561,15 +561,15 @@ let distrito = [
     'Duacarí'
 ];
 
-for (let i = 0; i < provincias.length; i++) {
+for (let i = 0; i < provinciasActual.length; i++) {
     let opt = document.createElement('option');
-    opt.innerHTML = provincias[i];
-    opt.value = provincias[i];
+    opt.innerHTML = provinciasActual[i];
+    opt.value = provinciasActual[i];
     sltProvinciaActual.appendChild(opt);
 }
 let eleProvincia = document.querySelector('#sltProvinciaActual');
 let eleCanton = document.querySelector('#sltCantonActual');
-let elDistrito = document.querySelector('#sltDistritoActual');
+let eleDistrito = document.querySelector('#sltDistritoActual');
 
 
 eleProvincia.addEventListener('click', llenarCanton);
@@ -579,13 +579,13 @@ eleCanton.addEventListener('click', llenarDistrito);
 function llenarCanton() {
     let selectvProvinciaed = eleProvincia.options[eleProvincia.selectedIndex].text;
     eleCanton.innerHTML = '';
-    elDistrito.innerHTML = '';
+    eleDistrito.innerHTML = '';
     if (selectvProvinciaed == 'San José') {
 
         for (let i = 0; i < 20; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
 
         }
@@ -594,8 +594,8 @@ function llenarCanton() {
 
         for (let i = 20; i < 36; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
         }
     }
@@ -605,8 +605,8 @@ function llenarCanton() {
 
         for (let i = 36; i < 44; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
         }
     }
@@ -616,8 +616,8 @@ function llenarCanton() {
 
         for (let i = 44; i < 54; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
         }
     }
@@ -626,8 +626,8 @@ function llenarCanton() {
 
         for (let i = 54; i < 65; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
         }
     }
@@ -636,8 +636,8 @@ function llenarCanton() {
 
         for (let i = 65; i < 76; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
         }
     }
@@ -646,8 +646,8 @@ function llenarCanton() {
 
         for (let i = 76; i < 82; i++) {
             let opt = document.createElement('option');
-            opt.innerHTML = cantones[i];
-            opt.value = cantones[i];
+            opt.innerHTML = cantonesActual[i];
+            opt.value = cantonesActual[i];
             eleCanton.appendChild(opt);
         }
     }
@@ -661,7 +661,7 @@ function llenarCanton() {
 function llenarDistrito() {
     let selectvProvinciaed = eleProvincia.options[eleProvincia.selectedIndex].text;
     let selectvCanton = eleCanton.options[eleCanton.selectedIndex].text;
-    elDistrito.innerHTML = '';
+    eleDistrito.innerHTML = '';
 
     if (selectvProvinciaed == 'San José') {
         if (selectvCanton == 'San José') {
@@ -669,7 +669,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Escazú') {
@@ -677,7 +677,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Desamparados') {
@@ -685,15 +685,15 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Puriscal') {
             for (let i = 27; i < 36; i++) {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
-                opt.value = cantones[i];
-                elDistrito.appendChild(opt);
+                opt.value = cantonesActual[i];
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Tarrazú') {
@@ -701,7 +701,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Aserrí') {
@@ -709,7 +709,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Mora') {
@@ -717,7 +717,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Goicoechea') {
@@ -725,7 +725,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Santa Ana') {
@@ -733,7 +733,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Alajuelita') {
@@ -741,7 +741,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Vasquez de Coronado') {
@@ -749,7 +749,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Acosta') {
@@ -757,7 +757,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Tibás') {
@@ -765,7 +765,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Moravia') {
@@ -773,7 +773,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Montes de Oca') {
@@ -781,7 +781,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Turrubares') {
@@ -789,7 +789,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Dota') {
@@ -797,7 +797,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
 
@@ -806,7 +806,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Pérez Zeledón') {
@@ -814,7 +814,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'León Cortés') {
@@ -822,7 +822,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }
@@ -833,7 +833,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'San Ramón') {
@@ -841,7 +841,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Grecia') {
@@ -849,7 +849,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'San Mateo') {
@@ -857,7 +857,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Atenas') {
@@ -865,7 +865,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Naranjo') {
@@ -873,7 +873,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Palmares') {
@@ -881,7 +881,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Poás') {
@@ -889,7 +889,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Orotina') {
@@ -897,7 +897,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'San Carlos') {
@@ -905,7 +905,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Alfaro Ruiz') {
@@ -913,7 +913,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Valverde Vega') {
@@ -921,7 +921,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Upala') {
@@ -929,7 +929,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Los Chiles') {
@@ -937,7 +937,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Guatuso') {
@@ -945,7 +945,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }
@@ -957,7 +957,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Paraíso') {
@@ -965,7 +965,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'La Unión') {
@@ -973,7 +973,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Jiménez') {
@@ -981,7 +981,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Turrialba') {
@@ -989,7 +989,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Alvarado') {
@@ -997,7 +997,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Oreamuno') {
@@ -1005,7 +1005,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'El Guarco') {
@@ -1013,7 +1013,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }
@@ -1027,7 +1027,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Barva') {
@@ -1035,7 +1035,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
 
@@ -1044,7 +1044,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Santa Bárbara') {
@@ -1052,7 +1052,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'San Rafael') {
@@ -1060,7 +1060,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'San Isidro') {
@@ -1068,7 +1068,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Belén') {
@@ -1076,7 +1076,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Flores') {
@@ -1084,7 +1084,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'San Pablo') {
@@ -1092,7 +1092,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Sarapiquí') {
@@ -1100,7 +1100,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }
@@ -1111,7 +1111,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Nicoya') {
@@ -1119,7 +1119,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Santa Cruz') {
@@ -1127,7 +1127,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Bagaces') {
@@ -1135,7 +1135,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Carrillo') {
@@ -1143,7 +1143,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Cañas') {
@@ -1151,7 +1151,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Abangares') {
@@ -1159,7 +1159,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Tilarán') {
@@ -1167,7 +1167,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Nandayure') {
@@ -1175,7 +1175,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'La Cruz') {
@@ -1183,7 +1183,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Hojancha') {
@@ -1191,7 +1191,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }
@@ -1202,7 +1202,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Esparza') {
@@ -1210,7 +1210,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Buenos Aires') {
@@ -1218,7 +1218,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Montes de Oro') {
@@ -1226,7 +1226,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Osa') {
@@ -1234,7 +1234,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Quepos') {
@@ -1242,7 +1242,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Golfito') {
@@ -1250,7 +1250,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Coto Brus') {
@@ -1258,7 +1258,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Parrita') {
@@ -1266,7 +1266,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Corredores') {
@@ -1274,7 +1274,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Garabito') {
@@ -1282,7 +1282,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }
@@ -1293,7 +1293,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Pococí') {
@@ -1301,7 +1301,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Siquirres') {
@@ -1309,7 +1309,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Talamanca') {
@@ -1317,7 +1317,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Matina') {
@@ -1325,7 +1325,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
         if (selectvCanton == 'Guácimo') {
@@ -1333,7 +1333,7 @@ function llenarDistrito() {
                 let opt = document.createElement('option');
                 opt.innerHTML = distrito[i];
                 opt.value = distrito[i];
-                elDistrito.appendChild(opt);
+                eleDistrito.appendChild(opt);
             }
         }
     }

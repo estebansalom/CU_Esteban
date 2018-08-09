@@ -39,6 +39,7 @@ let inputRolActual = document.querySelector('#txtRolActual');
 let inputEstadoActual = document.querySelector('#txtEstadoActual');
 
 let regexSoloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
+let regexDireccion = /^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
 let regexSoloNumeros = /^[0-9]+$/;
 let regexCorreo = /^[a-zA-Z0-9._]+@ucenfotec.ac.cr+$/;
 let regexCedula = /^[1-9]-?\d{4}-?\d{4}$/;
@@ -183,7 +184,6 @@ function crearSpan(pInfo) {
 function obtenerDatosUsuario() {
     let infoUsuario = [];
 
-    let id = inputIdUsuario.value;
     sNombre = inputNombre.value;
     sPrimerApellido = inputPrimerApellido.value;
     sSegundoApellido = inputSegundoApellido.value;
@@ -214,7 +214,7 @@ function obtenerDatosUsuario() {
             type: 'success',
             confirmButtonText: 'Entendido'
         });
-        infoUsuario.push(id, imagenUrl, sNombre, sPrimerApellido, sSegundoApellido, nCedula, dFecha, sCorreo, nTelefono, sDireccion, sProvincia, sDistrito, sCanton, sRol, sEstado);
+        infoUsuario.push(imagenUrl, sNombre, sPrimerApellido, sSegundoApellido, nCedula, dFecha, sCorreo, nTelefono, sDireccion, sProvincia, sDistrito, sCanton, sRol, sEstado, nCedula);
         registrar_Usuarios(infoUsuario);
         $('.swal2-confirm').click(function () {
         });
@@ -241,6 +241,7 @@ function obtenerDatosActual() {
     sDistritoActual = inputDistritoActual.value;
     sRolActual = inputRolActual.value;
     sEstadoActual = inputEstadoActual.value;
+    
 
     let bError = false;
     bError = validarActualizar();
@@ -265,31 +266,6 @@ function obtenerDatosActual() {
             reload();
         });
     }
-};
-
-function eliminar_usuario() {
-    let _id = this.dataset._id;
-    swal({
-        title: 'Desea eliminar a este usuario?',
-        text: "El usuario se eliminará permanentemente",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Eliminar!'
-    }).then((result) => {
-        if (result.value) {
-            eliminarUsuario(_id);
-
-            reload();
-            swal(
-                'Eliminado!',
-                'El usuario ha sido eliminado con éxito',
-                'success'
-            )
-        }
-    });
-
 };
 
 function validarUsuario() {
@@ -573,6 +549,32 @@ function buscar_por_id() {
     inputDistritoActual.value = usuario['distrito_usuario'];
     inputRolActual.value = usuario['rol_usuario'];
 };
+
+function eliminar_usuario() {
+    let _id = this.dataset._id;
+    swal({
+        title: 'Desea eliminar a este usuario?',
+        text: "El usuario se eliminará permanentemente",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar!'
+    }).then((result) => {
+        if (result.value) {
+            eliminarUsuario(_id);
+
+            reload();
+            swal(
+                'Eliminado!',
+                'El usuario ha sido eliminado con éxito',
+                'success'
+            )
+        }
+    });
+
+};
+
 
 
 // Display formulario registrar
