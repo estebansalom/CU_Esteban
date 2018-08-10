@@ -1,22 +1,20 @@
-
 'use strict';
 
 
 function registrarSede(paInfoSede){
     let respuesta = '';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/registrar_sedes',
+        url : 'http://localhost:4000/api/registrar_sede',
         type : 'post',
         contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',
         async : false,
         data:{
-            _id: paInfoSede[0],
-            nombre_sede : paInfoSede[1],
-            dirExacta_sede : paInfoSede[2],
-            latitud_sede : paInfoSede[3],
-            longitud_sede : paInfoSede[4],
-            estado_sede : paInfoSede[5],
+            nombre_sede : paInfoSede[0],
+            dirExacta_sede : paInfoSede[1],
+            latitud_sede : paInfoSede[2],
+            longitud_sede : paInfoSede[3],
+            estado_sede : paInfoSede[4],
         }
       });
     
@@ -93,7 +91,7 @@ function actualizarSede(paInfoSede){
             dirExacta_sede : paInfoSede[2],
             latitud_sede : paInfoSede[3],
             longitud_sede : paInfoSede[4],
-            estado_sede : paInfoSede[5],
+            estado_sede: paInfoSede[5],
         }
       });
     
@@ -131,3 +129,54 @@ function eliminarSede(_pid){
       return respuesta;
 
 };
+
+function agregarCarreraSede(pid, sNombreCarrera, sCodigoCarrera){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/agregar_carrera_sede',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : pid,
+            nombre_carrera : sNombreCarrera,
+            codigo_carrera : sCodigoCarrera
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+};
+
+function eliminarCarreraSede(pIdSede,pIdCarrera ){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/eliminar_subdocumento_carrera_id',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : pIdSede,
+            id_carrera : pIdCarrera
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+}

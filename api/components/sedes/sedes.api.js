@@ -2,13 +2,13 @@
 
 let sedeModel = require('./sedes.model');
 
-module.exports.registrar = function (req, res) {
+module.exports.registrar_sede = function (req, res) {
     let nuevaSede = new sedeModel({
         nombre_sede: req.body.nombre_sede,
         dirExacta_sede: req.body.dirExacta_sede,
         latitud_sede: req.body.latitud_sede,
         longitud_sede: req.body.longitud_sede,
-        estado_sede: req.body.estado_sede,
+        estado_sede: "Activa"
     });
 
     nuevaSede.save(function (error) {
@@ -54,6 +54,7 @@ module.exports.modificar_sede = function (req, res) {
         });
 };
 
+
 module.exports.eliminar_sede = function (req, res) {
     sedeModel.findByIdAndDelete(req.body._id,
         function (err, sede) {
@@ -64,4 +65,51 @@ module.exports.eliminar_sede = function (req, res) {
                 res.json({ success: true, msg: 'Se ha eliminado correctamente. ' + res });
             }
         });
+};
+
+module.exports.eliminar_subdocumento_carrera_id = function (req, res) {
+
+    sedeModel.update(
+        { _id: req.body._id },
+        {
+            $pull:
+            {
+                'carreras_sede':
+                {
+                    _id: req.body.id_carrera
+                }
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({ success: false, msg: 'No se pudo eliminar la carrera' + error });
+            } else {
+               res.json({ success: true, msg: 'Se ha actualizado correctamente. ' + res });
+            }
+        }
+    )
+};
+
+module.exports.agregar_carrera_sede = function (req, res) {
+
+    sedeModel.update(
+        { _id: req.body._id },
+        {
+            $push:
+            {
+                'carreras_sede':
+                {
+                    nombre_carrera: req.body.nombre_carrera,
+                    codigo_carrera: req.body.codigo_carrera
+                }
+            }
+        },
+        function (error) {
+            if (error) {
+                res.json({ success: false, msg: 'No se pudo agregar la carrera, ocurrió el siguiente error' + error });
+            } else {
+               res.json({ success: true, msg: 'Se ha actualizado correctamente. ' + res });
+            }
+        }
+    )
 };

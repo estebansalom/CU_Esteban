@@ -59,16 +59,10 @@ input,select{
 
 #sct_registrar .popup-content{
     margin-top: 3%;
-    height: 550px;
+    height: 600px;
     overflow-y: scroll;
     border-radius: 5px 0px 0px 5px;
-}
-
-#sct_modificar .popup-content {
-    margin-top: 3%;
-    height: 550px;
-    overflow-y: scroll;
-    border-radius: 5px 0px 0px 5px;
+    padding-bottom: 40px;
 }
 
 select[name = sct_cursos] h1{

@@ -93,7 +93,7 @@
         <section id="sct_registrar" class="popup-bg">
             <!-- Formulario que aparece -->
             <form class="popup-content scroll">
-                <h1 class="title">Registrar Usuarios</h1>
+                <h1 class="title" id="h1">Registrar Usuarios</h1>
 
                 <div class="form">
                     <input type="hidden" id="txtId">
@@ -129,13 +129,13 @@
 
                     <label for="ubicacion">Ubicación</label>
                     <div id=ubicacion>
-                        <select id="sltProvincia" required>
+                        <select name="provincia" id="sltProvincia" required>
                             <option value="">--Seleccione una provincia--</option>
                         </select>
-                        <select id="sltCanton" required>
+                        <select name="canton" id="sltCanton" required>
                             <option value="">--Seleccione un cantón-</option>
                         </select>
-                        <select id="sltDistrito" required>
+                        <select name="distrito" id="sltDistrito" required>
                             <option value="">--Seleccione un distrito--</option>
                         </select>
                     </div>
@@ -149,78 +149,21 @@
                         <option value="Rector">Rectoría</option>
                     </select>
 
-                    <label for="txtEstado">Estado</label>
-                    <input type="text" id="txtEstado" value="Activo" required>
+                    <div id="divEstado" hidden>
+                        <label for="txtEstado">Estado</label>
+                        <select id="txtEstado" required>
+                            <option value="Activa">Activa</option>
+                            <option value="Inactiva">Inactiva</option>
+                        </select>
+                    </div>
 
                     <button type="button" class="button" id="btnRegistrar">Registrar</button>
-                </div>
-            </form>
-            <!-- Formulario que aparece -->
-        </section>
-        <section id="sct_modificar" class="popup-bg">
-            <!-- Formulario que aparece -->
-            <form class="popup-content scroll">
-                <h1 class="title">Modificar Usuario</h1>
-
-                <div class="form">
-
-                    <div class="div-foto">
-                        <img src="../../img/default-avatar.png" alt="Foto" id="txtImagenActual" class="">
-                        <button type="button" id="btnModificarFoto" class="">Modificar foto</button>
-                    </div>
-
-                    <input type="text" id="txtNombreActual" required placeholder="Nombre del usuario*">
-
-                    <input type="text" id="txtPrimerApellidoActual" required placeholder="Primer apellido del usuario*">
-
-                    <input type="text" id="txtSegundoApellidoActual" required placeholder="Segundo apellido del usuario*">
-
-                    <input type="number" id="txtCedulaActual" required placeholder="Cedula del usuario*">
-
-                    <input type="date" id="dateFechaActual" required autocomplete="Fecha de ingreso a la universidad">
-
-                    <input type="text" id="txtCorreoActual" required placeholder="Correo del usuario*">
-
-                    <input type="number" id="txtTelefonoActual" required placeholder="Telefono del usuario*">
-
-                    <input type="text" id="txtDireccionActual" required placeholder="Direccion exacta del usuario*">
-
-                    <label for="ubicacionActual">Ubicación</label>
-                    <div id="ubicacionActual">
-                        <select id="sltProvinciaActual" required>
-                            <option value="">--Seleccione una provincia--</option>
-                        </select>
-                        <select id="sltCantonActual" required>
-                            <option value="">--Seleccione un cantón-</option>
-                        </select>
-                        <select id="sltDistritoActual" required>
-                            <option value="">--Seleccione un distrito--</option>
-                        </select>
-                    </div>
-
-
-                    <label for="txtRolActual">Rol</label>
-                    <select id="txtRolActual">
-                        <option value="Asistente">Asistente</option>
-                        <option value="Profesor">Profesor</option>
-                        <option value="Asistente de decanatura">Asist. de decanatura</option>
-                        <option value="Decanatura">Decanatura</option>
-                        <option value="Rector">Rectoría</option>
-                    </select>
-
-                    <label for="txtEstadoActual">Estado</label>
-                    <select id="txtEstadoActual" required>
-                        <option value="">Cambie el estado</option>
-                        <option value="Activo">Activo</option>
-                        <option value="Inactivo">Inactivo</option>
-                    </select>
-
                     <button type="button" class="button" id="btnActualizar">Actualizar</button>
-
                 </div>
             </form>
             <!-- Formulario que aparece -->
         </section>
+
     </main>
     <!-- SCRIPTS FIJOS PARA TODOS Dashboards -->
 
@@ -242,7 +185,6 @@
     <!--<script src="../../js/controlador_sesion.js"></script>-->
     <script src="../../js/controlador_menu.js"></script>
     <script src="../../js/usuarios_public/controlador_direccion_exacta.js"></script>
-    <script src="../../js/usuarios_public/controlador_actualizar_direccion.js"></script>
     <script src="../../js/usuarios_public/controlador_usuarios.js"></script>
     <!-- Todos los controladores necesarios -->
 

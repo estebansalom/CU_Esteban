@@ -80,9 +80,11 @@
         <section id="sct_registrar" class="popup-bg">
             <!-- Formulario que aparece -->
             <form class="popup-content">
-                <h1 class="title">Registrar sedes</h1>
+                <h1 class="title" id="h1">Registrar sedes</h1>
 
                 <div class="form">
+                    
+                    <input type="hidden" id="txtId">
 
                     <label for="txtNombre">Nombre</label>
                     <input type="text" id="txtNombre" required placeholder="Nombre de la sede*">
@@ -96,47 +98,22 @@
                     <label for="numLongitud">Longitud</label>
                     <input type="number" id="numLongitud" required placeholder="Longitud de la sede*">
 
-                    <label for="txtEstado">Estado</label>
-                    <input type="text" id="txtEstado" value="Activa" required>
+                   
+                    <div id="divEstado" hidden >
+                        <label for="txtEstado">Estado</label>
+                    <select id="txtEstado" required>
+                        <option value="Activa">Activa</option>
+                        <option value="Inactiva">Inactiva</option>
+                    </select>
+                    </div>
 
                     <button type="button" class="button" id="btnRegistrar">Registrar</button>
-                </div>
-            </form>
-            <!-- Formulario que aparece -->
-        </section>
-        <section id="sct_modificar" class="popup-bg">
-            <!-- Formulario que aparece -->
-            <form class="popup-content">
-                <h1 class="title">Modificar sede</h1>
-
-                <div class="form">
-
-                    <input type="hidden" id="txtId">
-
-                    <label for="txtNombreActual">Nombre</label>
-                    <input type="text" id="txtNombreActual" required placeholder="Nombre de la sede*">
-
-                    <label for="txtDirExactaActual">Dirección exacta</label>
-                    <input type="text" id="txtDirExactaActual" required placeholder="Dirección exacta de la sede*">
-
-                    <label for="numLatitudActual">Latitud</label>
-                    <input type="number" id="numLatitudActual" required placeholder="Latitud de la sede*">
-
-                    <label for="numLongitudActual">Longitud</label>
-                    <input type="number" id="numLongitudActual" required placeholder="Longitud de la sede*">
-
-                    <label for="txtEstadoActual">Estado</label>
-                    <select id="txtEstadoActual" required>
-                        <option value="">Cambie el estado</option>
-                        <option value="Activa">Activa</option>
-                        <option value="Inactivo">Inactiva</option>
-                    </select>
-
                     <button type="button" class="button" id="btnActualizar">Actualizar</button>
                 </div>
             </form>
             <!-- Formulario que aparece -->
         </section>
+        
     </main>
     <!-- SCRIPTS FIJOS PARA TODOS Dashboards -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
@@ -146,6 +123,7 @@
     <!-- Todos los servicios necesarios -->
     <script src="../../js/usuarios_public/servicio_usuarios.js"></script>
     <script src="../../js/sedes_public/servicio_sedes.js"></script>
+    <script src="../../js/carreras_public/servicio_carreras.js"></script>
     <!-- Todos los servicios necesarios -->
 
     <!-- Todos los controladores necesarios -->

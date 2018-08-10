@@ -2,46 +2,6 @@
 'use strict';
 mostrarListaSedes();
 
-let botonRegistrar = document.querySelector("#btnRegistrar");
-botonRegistrar.addEventListener('click', obtenerDatosRegistro);
-let botonActualizar = document.querySelector("#btnActualizar");
-botonActualizar.addEventListener('click', obtenerDatosActualizar);
-let popup;
-
-let inputIdSede = document.querySelector('#txtId');
-let inputNombre = document.querySelector("#txtNombre");
-let inputDirExacta = document.querySelector("#txtDirExacta");
-let inputLatitud = document.querySelector("#numLatitud");
-let inputLongitud = document.querySelector("#numLongitud");
-let inputEstado = document.querySelector("#txtEstado");
-
-let inputNombreActual = document.querySelector("#txtNombreActual");
-let inputDirExactaActual = document.querySelector("#txtDirExactaActual");
-let inputLatitudActual = document.querySelector("#numLatitudActual");
-let inputLongitudActual = document.querySelector("#numLongitudActual");
-let inputEstadoActual = document.querySelector("#txtEstadoActual");
-
-let id = '';
-let sNombre = '';
-let sDirExacta = '';
-let sLatitud = 0;
-let sLongitud = 0;
-let sEstado = '';
-
-let sNombreActual = '';
-let sDirExactaActual = '';
-let sLatitudActual = 0;
-let sLongitudActual = 0;
-let sEstadoActual = '';
-
-
-let regexDirExacta = /^[a-z0-9A-ZñÑáéíóúÁÉÍÓÚ ]+$/;
-let regexSoloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
-let regexCoordenadas = /^[0-9.-]+$/;
-
-// Buscar
-// Buscar
-// Buscar
 let inputBuscar = document.querySelector('#txtBusqueda');
 
 // Buscar
@@ -66,72 +26,102 @@ function mostrarListaSedes(paBuscar) {
     for (let i = 0; i < listaSedes.length; i++) {
         if ((listaSedes[i]['nombre_sede'].toLowerCase().includes(paBuscar.toLowerCase()))) {
             let fila = tbody.insertRow();
-            let celdaNombre = fila.insertCell();
-            let celdaDirExacta = fila.insertCell();
-            let celdaLatitud = fila.insertCell();
-            let celdaLongitud = fila.insertCell();
-            let celdaEstado = fila.insertCell();
-            let celdaOpciones = fila.insertCell();
+                let celdaNombre = fila.insertCell();
+                let celdaDirExacta = fila.insertCell();
+                let celdaLatitud = fila.insertCell();
+                let celdaLongitud = fila.insertCell();
+                let celdaEstado = fila.insertCell();
+                let celdaOpciones = fila.insertCell();
 
-            celdaNombre.innerHTML = listaSedes[i]['nombre_sede'];
-            celdaDirExacta.innerHTML = listaSedes[i]['dirExacta_sede'];
-            celdaLatitud.innerHTML = listaSedes[i]['latitud_sede'];
-            celdaLongitud.innerHTML = listaSedes[i]['longitud_sede'];
-            celdaEstado.innerHTML = listaSedes[i]['estado_sede'];
-
-
-            // Este es el boton de editar
-            let botonEditar = document.createElement('span');
-            botonEditar.classList.add('fas');
-            botonEditar.classList.add('fa-cogs');
-            botonEditar.dataset._id = listaSedes[i]['_id'];
-            botonEditar.addEventListener('click', buscar_por_id);
-            botonEditar.addEventListener('click', function () {
-                ppActualizar.style.display = "block";
-
-                // Agregar esto a los formularios que tengan mucho contenido (hace una animacion de scroll a la parte superior del formulario)
-                $(".scroll").animate({ scrollTop: 0 }, "fast");
-            });
-
-            celdaOpciones.appendChild(botonEditar);
-
-            // Este es el boton de eliminar
-            let botonEliminar = document.createElement('span');
-            botonEliminar.classList.add('fas');
-            botonEliminar.classList.add('fa-trash-alt');
-
-            botonEliminar.dataset._id = listaSedes[i]['_id'];
-            botonEliminar.addEventListener('click', remover_sede);
-
-            celdaOpciones.appendChild(botonEliminar);
-
-            // Este es el boton de asociar
-            let botonAsociar = document.createElement('span');
-            botonAsociar.classList.add('fas');
-            botonAsociar.classList.add('fa-link');
-
-            celdaOpciones.appendChild(botonAsociar);
-
-            // Icono de editar: <i class="fas fa-cogs"></i>
-            // Icono de eliminar: <i class="fas fa-trash-alt"></i>
-        }
-    }
-};
+                celdaNombre.innerHTML = listaSedes[i]['nombre_sede'];
+                celdaDirExacta.innerHTML = listaSedes[i]['dirExacta_sede'];
+                celdaLatitud.innerHTML = listaSedes[i]['latitud_sede'];
+                celdaLongitud.innerHTML = listaSedes[i]['longitud_sede'];
+                celdaEstado.innerHTML = listaSedes[i]['estado_sede'];
 
 
+                // Este es el boton de editar
+                let botonEditar = document.createElement('span');
+                botonEditar.classList.add('fas');
+                botonEditar.classList.add('fa-cogs');
+
+                botonEditar.dataset._id = listaSedes[i]['_id'];
+                botonEditar.addEventListener('click', buscar_por_id);
+                botonEditar.addEventListener('click', function () {
+                    popup = document.querySelector('#sct_registrar');
+                    popup.style.display = "block";
+                });
+
+
+                celdaOpciones.appendChild(botonEditar);
+
+                // Este es el boton de eliminar
+                let botonEliminar = document.createElement('span');
+                botonEliminar.classList.add('fas');
+                botonEliminar.classList.add('fa-trash-alt');
+
+                botonEliminar.dataset._id = listaSedes[i]['_id'];
+                botonEliminar.addEventListener('click', remover_sede);
+
+                celdaOpciones.appendChild(botonEliminar);
+
+                // Este es el boton de asociar
+                let botonAsociar = document.createElement('span');
+                botonAsociar.classList.add('fas');
+                botonAsociar.classList.add('fa-link');
+
+                celdaOpciones.appendChild(botonAsociar);
+
+                // Icono de editar: <i class="fas fa-cogs"></i>
+                // Icono de eliminar: <i class="fas fa-trash-alt"></i>
+            }
+        };
+    };
 // Registrar
 // Registrar
 // Registrar
+
+let botonRegistrar = document.querySelector("#btnRegistrar");
+let botonActualizar = document.querySelector("#btnActualizar");
+let popup;
+botonActualizar.hidden = true;
+
+botonRegistrar.addEventListener('click', obtenerDatosRegistro);
+botonActualizar.addEventListener('click', obtenerDatosActualizar);
+
+let inputIdSede = document.querySelector('#txtId');
+let inputNombreSede = document.querySelector("#txtNombre");
+let inputDirExactaSede = document.querySelector("#txtDirExacta");
+let inputLatitudSede = document.querySelector("#numLatitud");
+let inputLongitudSede = document.querySelector("#numLongitud");
+let inputEstadoSede = document.querySelector("#txtEstado");
+let divEstado = document.querySelector("#divEstado");
+divEstado.hidden = true;
+
+
+let sNombreSede = '';
+let sDirExactaSede = '';
+let sLatitudSede = 0;
+let sLongitudSede = 0;
+let sEstadoSede = '';
+let sIdSede = '';
+
+let regexDirExacta = /^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ., ]+$/;
+let regexSoloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
+let regexCoordenadas = /^[0-9.-]+$/;
+
+
 function obtenerDatosRegistro() {
     let infoSede = [];
     let bError = false;
 
-    id = inputIdSede.value;
-    sNombre = inputNombre.value;
-    sDirExacta = inputDirExacta.value;
-    sLatitud = inputLatitud.value;
-    sLongitud = inputLongitud.value;
-    sEstado = inputEstado.value;
+    sNombreSede = inputNombreSede.value;
+    sDirExactaSede = inputDirExactaSede.value;
+    sLatitudSede = inputLatitudSede.value;
+    sLongitudSede = inputLongitudSede.value;
+    sEstadoSede = inputEstadoSede.value;
+
+    infoSede.push(sNombreSede, sDirExactaSede, sLatitudSede, sLongitudSede, sEstadoSede);
 
     bError = validarSedes();
     if (bError) {
@@ -148,90 +138,29 @@ function obtenerDatosRegistro() {
             type: 'success',
             confirmButtonText: 'Entendido'
         });
-        infoSede.push(id, sNombre, sDirExacta, sLatitud, sLongitud, sEstado);
-        registrarSede(infoSede);
         $('.swal2-confirm').click(function () {
+            registrarSede(infoSede);
+            reload();
         });
-        reload();
+
     }
-};
-
-
-function validarSedes() {
-    let bError = false;
-    let arregloInputs = [];
-    arregloInputs = document.querySelectorAll('#sct_registrar input:required');
-
-    sNombre = inputNombre.value;
-    sDirExacta = inputDirExacta.value;
-    sLatitud = inputLatitud.value;
-    sLongitud = inputLongitud.value;
-    sEstado = inputEstado.value;
-
-    // Validacion contra blancos
-    for (let i = 0; i < arregloInputs.length; i++) {
-        if (arregloInputs[i].value == '') {
-            bError = true;
-            arregloInputs[i].classList.add('errorInput');
-        } else {
-            arregloInputs[i].classList.remove('errorInput');
-        }
-
-        // Validacion para el nombre
-        if (regexSoloLetras.test(sNombre) == false) {
-            bError = true;
-            inputNombre.classList.add('errorInput');
-        } else {
-            inputNombre.classList.remove('errorInput');
-        }
-
-        // Validacion para la longitud
-        if (regexCoordenadas.test(sLongitud) == false) {
-            bError = true;
-            inputLongitud.classList.add('errorInput');
-        } else {
-            inputLongitud.classList.remove('errorInput');
-        }
-
-        // Validacion para la latitud
-        if (regexCoordenadas.test(sLatitud) == false) {
-            bError = true;
-            inputLatitud.classList.add('errorInput');
-        } else {
-            inputLatitud.classList.remove('errorInput');
-        }
-    }
-    return bError
-};
-
-function buscar_por_id() {
-    //Binding
-    let _id = this.dataset._id;
-    let sede = obtener_sede_por_id(_id);
-
-    console.log(sede);
-
-    inputIdSede.value = sede['_id'];
-    inputNombreActual.value = sede['nombre_sede'];
-    inputDirExactaActual.value = sede['dirExacta_sede'];
-    inputLatitudActual.value = sede['latitud_sede'];
-    inputLongitudActual.value = sede['longitud_sede'];
-    inputEstadoActual.value = sede['estado_sede'];
 };
 
 function obtenerDatosActualizar() {
-    let infoSedeActual = [];
+    let infoSede = [];
     let bError = false;
 
 
-    id = inputIdSede.value;
-    sNombreActual = inputNombreActual.value;
-    sDirExactaActual = inputDirExactaActual.value;
-    sLatitudActual = inputLatitudActual.value;
-    sLongitudActual = inputLongitudActual.value;
-    sEstadoActual = inputEstadoActual;
+    sIdSede = inputIdSede.value;
+    sNombreSede = inputNombreSede.value;
+    sDirExactaSede = inputDirExactaSede.value;
+    sLatitudSede = inputLatitudSede.value;
+    sLongitudSede = inputLongitudSede.value;
+    sEstadoSede = inputEstadoSede.value;
 
-    bError = validarSedesActualizar();
+    infoSede.push(sIdSede, sNombreSede, sDirExactaSede, sLatitudSede, sLongitudSede, sEstadoSede);
+
+    bError = validarSedes();
     if (bError) {
         swal({
             title: 'Actualización incorrecta',
@@ -241,28 +170,31 @@ function obtenerDatosActualizar() {
         });
     } else {
         swal({
-            title: 'Actualización correcta',
+            title: 'Actualización correcto',
             text: 'La sede se actualizó correctamente',
             type: 'success',
             confirmButtonText: 'Entendido'
         });
-        infoSedeActual.push(id, sNombreActual, sDirExactaActual, sLatitudActual, sLongitudActual, sEstadoActual);
-        actualizarSede(infoSedeActual);
         $('.swal2-confirm').click(function () {
+            actualizarSede(infoSede);
+            reload();
         });
-        reload();
+        botonRegistrar.hidden = false;
+        botonActualizar.hidden = true;
+        divEstado.hidden = true;
     }
 
 };
 
-function validarSedesActualizar() {
+function validarSedes() {
     let bError = false;
     let arregloInputs = [];
-    arregloInputs = document.querySelectorAll('#sct_modificar input:required');
+    arregloInputs = document.querySelectorAll('input:required');
 
-    sNombreActual = inputNombreActual.value;
-    sLatitudActual = inputLatitudActual.value;
-    sLongitudActual = inputLongitudActual.value;
+    sNombreSede = inputNombreSede.value;
+    sDirExactaSede = inputDirExactaSede.value;
+    sLatitudSede = inputLatitudSede.value;
+    sLongitudSede = inputLongitudSede.value;
 
     // Validacion contra blancos
     for (let i = 0; i < arregloInputs.length; i++) {
@@ -274,32 +206,67 @@ function validarSedesActualizar() {
         }
 
         // Validacion para el nombre
-        if (regexSoloLetras.test(sNombreActual) == false) {
+        if (regexSoloLetras.test(sNombreSede) == false) {
             bError = true;
-            inputNombreActual.classList.add('errorInput');
+            inputNombreSede.classList.add('errorInput');
         } else {
-            inputNombreActual.classList.remove('errorInput');
+            inputNombreSede.classList.remove('errorInput');
         }
 
-         // Validacion para la latitud
-         if (regexCoordenadas.test(sLatitudActual) == false) {
+        // Validacion para el nombre
+        if (regexDirExacta.test(sDirExactaSede) == false) {
             bError = true;
-            inputLatitudActual.classList.add('errorInput');
+            inputDirExactaSede.classList.add('errorInput');
         } else {
-            inputLatitudActual.classList.remove('errorInput');
+            inputDirExactaSede.classList.remove('errorInput');
         }
 
         // Validacion para la longitud
-        if (regexCoordenadas.test(sLongitudActual) == false) {
+        if (regexCoordenadas.test(sLongitudSede) == false) {
             bError = true;
-            inputLongitudActual.classList.add('errorInput');
+            inputLongitudSede.classList.add('errorInput');
         } else {
-            inputLongitudActual.classList.remove('errorInput');
-        }    
+            inputLongitudSede.classList.remove('errorInput');
+        }
+
+        // Validacion para la latitud
+        if (regexCoordenadas.test(sLatitudSede) == false) {
+            bError = true;
+            inputLatitudSede.classList.add('errorInput');
+        } else {
+            inputLatitudSede.classList.remove('errorInput');
+        }
     }
     return bError
 };
 
+function limpiarFormulario() {
+    inputNombreSede.value = "";
+    inputDirExactaSede.value = "";
+    inputLatitudSede.value = 0;
+    inputLongitudSede.value = 0;
+    divEstado.hidden = true;
+};
+
+
+function buscar_por_id() {
+    //Binding
+    let _id = this.dataset._id;
+    botonRegistrar.hidden = true;
+    botonActualizar.hidden = false;
+    divEstado.hidden = false;
+
+    let sede = obtener_sede_por_id(_id);
+
+    console.log(sede);
+
+    inputIdSede.value = sede['_id'];
+    inputNombreSede.value = sede['nombre_sede'];
+    inputDirExactaSede.value = sede['dirExacta_sede'];
+    inputLatitudSede.value = sede['latitud_sede'];
+    inputLongitudSede.value = sede['longitud_sede'];
+    inputEstadoSede.value = sede['estado_sede'];
+};
 
 function remover_sede() {
     let _id = this.dataset._id;
@@ -314,7 +281,8 @@ function remover_sede() {
     }).then((result) => {
         if (result.value) {
             eliminarSede(_id);
-            reload();
+            obtenerListaSedes();
+            mostrarListaSedes();
             swal(
                 'Eliminado!',
                 'La sede ha sido eliminado con éxito',
@@ -325,12 +293,21 @@ function remover_sede() {
 
 };
 
-
+// Display formulario registrar
 // Display formulario registrar
 let botonAgregar = document.querySelector('#btnAgregar');
+botonAgregar.addEventListener('click', function () {
+    popup = document.querySelector('#sct_registrar');
+    popup.style.display = "block";
+    botonRegistrar.hidden = false;
+    botonActualizar.hidden = true;
+    let titulo;
+    titulo = document.getElementById('h1');
+    titulo.innerHTML = 'Registrar Sede';
+    limpiarFormulario();
+});
 
 let ppRegistrar = document.querySelector('#sct_registrar');
-let ppActualizar = document.querySelector('#sct_modificar');
 
 botonAgregar.addEventListener('click', function () {
     ppRegistrar.style.display = "block";
@@ -339,38 +316,14 @@ botonAgregar.addEventListener('click', function () {
 window.onclick = function (event) {
     if (event.target == ppRegistrar) {
         ppRegistrar.style.display = "none";
-        limpiarFormularioRegistrar();
+        limpiarFormulario();
         // Actualizar en cada caso de uso
-    }
-    if (event.target == ppActualizar) {
-        ppActualizar.style.display = "none";
-        limpiarFormularioModificar();
     }
 
 }
-
-
-function limpiarFormularioRegistrar() {
-    inputNombre.value = "";
-    inputDirExacta.value = "";
-    inputLatitud.value = 0;
-    inputLongitud.value = 0;
-    inputEstado.value = "";
-};
-
-function limpiarFormularioModificar() {
-    inputNombreActual.value = "";
-    inputDirExactaActual.value = "";
-    inputLatitudActual.value = 0;
-    inputLongitudActual.value = 0;
-    inputEstadoActual.value = "";
-};
-
 function reload() {
-    mostrarListaSedes();
-    limpiarFormularioModificar();
-    limpiarFormularioRegistrar();
-    ppRegistrar.style.display = "none";
-    ppActualizar.style.display = "none";
-};
+    location.reload();
+    popup.style.display = "none";
+    limpiarFormulario();
+}
 // Esto es para que despliegue el formulario
