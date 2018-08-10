@@ -141,19 +141,19 @@ function obtenerDatos() {
         infoPeriodo.push(sNombre, sEstado);
         registrarPeriodo(infoPeriodo);
         $('.swal2-confirm').click(function () {
-            clean();
-            reload();
+        reload();
         });
         limpiarFormulario();
     }
 };
 function validar() {
+
     let bError = false;
+    let arregloInputs = [];
+    arregloInputs = document.querySelectorAll('input:required');
     sNombre = inputNombre.value;
-    sEstado = inputEstado.value;
 
     // Validacion contra blancos
-    let arregloInputs = document.querySelectorAll('input:required');
     for (let i = 0; i < arregloInputs.length; i++) {
         if (arregloInputs[i].value == '') {
             bError = true;
@@ -171,7 +171,8 @@ function validar() {
         inputNombre.classList.remove('errorInput');
     };
 
-}
+    return bError;
+};
 function limpiarFormulario() {
     inputNombre.value = "";
 };
@@ -190,11 +191,10 @@ window.onclick = function (event) {
        limpiarFormulario();
     }
 }
-function clean() {
-    popup.style.display = "none";
-    limpiarFormulario();
-}
+
 function reload(){
     location.reload();
+    popup.style.display = "none";
+    limpiarFormulario();
 }
 // Esto es para que despliegue el formulario

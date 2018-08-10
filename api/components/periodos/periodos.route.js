@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 const periodos = require('./periodos.api');
 
-router.route('/registrar_periodos')
+router.route('/registrar_periodo')
     .post(function(req, res){
-    periodos.registrar(req, res);
+    periodos.registrar_periodo(req, res);
 });
 
 router.route('/listar_periodos')

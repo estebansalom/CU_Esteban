@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
-    <link rel="stylesheet" href="../../css/registrar.css">
+    <link rel="stylesheet" href="../../css/formularios_sedes.css">
     <!-- Si otra hoja de estilos se necesita, se agrega aqui -->
 
 </head>
@@ -29,7 +30,7 @@
                     <span class="fas fa-caret-down"></span>
                 </a>
                 <ul id="menuOpciones" class="menu">
-                    
+
                 </ul>
             </div>
             <a id="btnCerrarSesion">Cerrar sesión</a>
@@ -70,7 +71,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                
+
                 </tbody>
             </table>
         </section>
@@ -81,6 +82,8 @@
 
                 <div class="form">
                     <input type="text" id="txtNombre" required placeholder="Nombre del periodo*">
+
+                    <input type="hidden" id="txtEstado" required>
 
                     <button type="button" class="button" id="btnRegistrar">Registrar</button>
                 </div>

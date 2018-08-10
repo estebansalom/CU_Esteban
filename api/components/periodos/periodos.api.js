@@ -2,7 +2,7 @@
 
 let periodoModel = require('./periodos.model');
 
-module.exports.registrar = function (req, res) {
+module.exports.registrar_periodo = function (req, res) {
     let nuevoPeriodo = new periodoModel({
         nombre_periodo: req.body.nombre_periodo,
         estado_periodo: "Activo"
