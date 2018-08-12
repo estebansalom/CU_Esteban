@@ -16,7 +16,8 @@ let userSchema = new mongoose.Schema({
     distrito_usuario:{ type: String, required: true },
     rol_usuario:{ type: String, required: true },
     estado_usuario:{ type: String}, 
-    contrasenna_usuario:{ type: String}
+    contrasenna_usuario:{ type: String},
+    first_log:{ type: Boolean},
 });
 /*instruccoon para exportar datos a la base de daros en forma de esquema moongoose*/
 module.exports = mongoose.model('User', userSchema)

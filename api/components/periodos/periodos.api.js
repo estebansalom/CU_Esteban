@@ -30,3 +30,35 @@ module.exports.listar = function (req, res) {
         });
 };
 
+module.exports.buscar_periodo_por_id = function (req, res) {
+    periodoModel.findById({ _id: req.body._id }).then(
+        function (periodo) {
+            res.send(periodo);
+        }
+    );
+};
+
+module.exports.modificar_periodo = function (req, res) {
+    periodoModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
+            if (err) {
+                res.json({ success: false, msg: 'El periodo se ha podido modificar. ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente. ' + res });
+            }
+        });
+};
+
+module.exports.eliminar_periodo = function (req, res) {
+    periodoModel.findByIdAndDelete(req.body._id,
+        function (err, periodo) {
+            if (err) {
+                res.json({ success: false, msg: 'EL periodo no se ha podido eliminar. ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha eliminado correctamente. ' + res });
+            }
+        });
+};
+

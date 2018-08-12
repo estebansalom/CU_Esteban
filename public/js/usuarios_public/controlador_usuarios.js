@@ -27,6 +27,7 @@ let inputCanton = document.querySelector('#sltCanton');
 let inputDistrito = document.querySelector('#sltDistrito');
 let inputRol = document.querySelector('#txtRol');
 let inputEstado = document.querySelector('#txtEstado');
+let firstLog = true;
 
 let regexSoloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
 let regexDireccion = /^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
@@ -102,6 +103,18 @@ function mostrarListaUsuarios(paBuscar) {
             let botonVerMas = document.createElement('button');
             botonVerMas.classList.add('boton-ver-mas');
             botonVerMas.innerHTML = "Ver mas informacion";
+            botonVerMas.dataset._id = listaUsuarios[i]['_id'];
+            botonVerMas.addEventListener('click', verMas);
+            let ppPerfil = document.querySelector('#sct_perfil');
+            botonVerMas.addEventListener('click', function () {
+                ppPerfil.style.display = "block";
+                window.onclick = function (event) {
+                    if (event.target == ppPerfil) {
+                        ppPerfil.style.display = "none";
+                    }
+                }
+            });
+
             celdaVerMas.appendChild(botonVerMas);
 
 
@@ -180,6 +193,7 @@ function obtenerDatosUsuario() {
     sDistrito = inputDistrito.value;
     sRol = inputRol.value;
     sEstado = inputEstado.value;
+    firstLog = true;
 
     let bError = false;
     bError = validarUsuario();
@@ -197,10 +211,10 @@ function obtenerDatosUsuario() {
             type: 'success',
             confirmButtonText: 'Entendido'
         });
-        infoUsuario.push(imagenUrl, sNombre, sPrimerApellido, sSegundoApellido, nCedula, dFecha, sCorreo, nTelefono, sDireccion, sProvincia, sDistrito, sCanton, sRol, sEstado, nCedula);
+        infoUsuario.push(imagenUrl, sNombre, sPrimerApellido, sSegundoApellido, nCedula, dFecha, sCorreo, nTelefono, sDireccion, sProvincia, sDistrito, sCanton, sRol, sEstado, nCedula, firstLog);
         registrar_Usuarios(infoUsuario);
         $('.swal2-confirm').click(function () {
-        reload();
+            reload();
         });
     }
 };
@@ -246,7 +260,7 @@ function obtenerDatosActual() {
         infoUsuarioActual.push(id, imagenUrl, sNombre, sPrimerApellido, sSegundoApellido, nCedula, dFecha, sCorreo, nTelefono, sDireccion, sProvincia, sCanton, sDistrito, sRol, sEstado);
         actualizarUsuario(infoUsuarioActual);
         $('.swal2-confirm').click(function () {
-        reload();
+            reload();
         });
         botonRegistrar.hidden = false;
         botonActualizar.hidden = true;
@@ -411,6 +425,42 @@ function buscar_por_id() {
     inputRol.value = usuario['rol_usuario'];
 };
 
+
+function verMas() {
+    let fotoPerfil = document.querySelector('#img');
+    let nombrePerfil = document.querySelector('#nombrePerfil');
+    let perfilInfo = document.querySelector('.perfil-info');
+    let _id = this.dataset._id;
+    let masInfo = obtener_masInfo_por_id(_id);
+
+    fotoPerfil.style.backgroundImage = "url('" + masInfo['foto_usuario'] + "')";
+
+    nombrePerfil.innerHTML = '';
+    let nombreCompleto = masInfo['nombre_usuario'] + " " + masInfo['primer_apellido_usuario'] + " " + masInfo['segundo_apellido_usuario'];
+    nombrePerfil.innerHTML = nombreCompleto;
+
+    perfilInfo.innerHTML = '';
+    perfilInfo.appendChild(createTextElement('Cédula:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['cedula_usuario'], 'h2'));
+    perfilInfo.appendChild(createTextElement('Correo:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['correo_usuario'], 'h2'));
+    perfilInfo.appendChild(createTextElement('Teléfono:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['telefono_usuario'], 'h2'));
+    perfilInfo.appendChild(createTextElement('Provincia:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['provincia_usuario'], 'h2'));
+    perfilInfo.appendChild(createTextElement('Canton:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['canton_usuario'], 'h2'));
+    perfilInfo.appendChild(createTextElement('Distrito:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['distrito_usuario'], 'h2'));
+    perfilInfo.appendChild(createTextElement('Dirección exacta:', 'h2'));
+    perfilInfo.appendChild(createTextElement(masInfo['direccion_usuario'], 'h2'));
+}
+function createTextElement(text, element) {
+    let newH2 = document.createElement(element);
+    newH2.textContent = text;
+    return newH2
+}
+
 function eliminar_usuario() {
     let _id = this.dataset._id;
     swal({
@@ -488,6 +538,5 @@ function reload() {
     mostrarListaUsuarios();
     limpiarFormularioRegistrar();
     ppRegistrar.style.display = "none";
-    ppActualizar.style.display = "none";
 }
 // Esto es para que despliegue el formulario

@@ -48,11 +48,19 @@ function mostrarListaSedes(paBuscar) {
                 botonEditar.dataset._id = listaSedes[i]['_id'];
                 botonEditar.addEventListener('click', buscar_por_id);
                 botonEditar.addEventListener('click', function () {
-                    popup = document.querySelector('#sct_registrar');
+                    popup = document.querySelector('#sct_registrar')
                     popup.style.display = "block";
+                    let titulo;
+                    titulo = document.getElementById('h1');
+                    titulo.innerHTML = 'Modificar Sede';
                 });
-
-
+                let titulo;
+                titulo = document.getElementById('h1');
+                titulo.innerHTML = 'Registrar Sede';
+                // Agregar esto a los formularios que tengan mucho contenido (hace una animacion de scroll a la parte superior del formulario)
+                $(".scroll").animate({ scrollTop: 0 }, "fast");
+    
+    
                 celdaOpciones.appendChild(botonEditar);
 
                 // Este es el boton de eliminar

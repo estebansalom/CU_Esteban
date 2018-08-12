@@ -61,31 +61,9 @@ input,select{
     margin-top: 7%;
     height: 500px;
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
-#sct_modificar .popup-content {
-    margin-top: 7%;
-    height: 500px;
-    border-radius: 5px;
-}
-
-select[name = sct_cursos] h1{
-    font-size: 1.8em;
-}
-#sct_cursos ul{
-    width:  80%;
-    margin: 0px auto;
-}
-#sct_cursos ul li{
-    margin-bottom: 30px;
-    margin-left: 5%;
-}
-#sct_cursos ul li::before{
-    content: "\2756"; color: rgba(30,33,66,0.8);
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1.2em;
-}
 
 input[type = date]::-webkit-inner-spin-button{
     display: none;

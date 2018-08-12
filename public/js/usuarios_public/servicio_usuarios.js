@@ -23,7 +23,8 @@ function registrar_Usuarios(paInfoUsuario) {
             distrito_usuario: paInfoUsuario[11],
             rol_usuario: paInfoUsuario[12],
             estado_usuario: paInfoUsuario[13],
-            contrasenna_usuario: paInfoUsuario[14]
+            contrasenna_usuario: paInfoUsuario[14],
+            first_log: paInfoUsuario[15]
         }
     });
 
@@ -88,6 +89,30 @@ function obtener_usuario_por_id(pid){
       return usuario;
 };
 
+function obtener_masInfo_por_id(pid){
+    let usuario = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/buscar_masInfo_id',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id : pid
+        }
+      });
+    
+      peticion.done(function(response){
+        usuario = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return usuario;
+};
+
 function actualizarUsuario(paInfoUsuarioActual){
     let respuesta = '';
     let peticion = $.ajax({
@@ -112,6 +137,56 @@ function actualizarUsuario(paInfoUsuarioActual){
             distrito_usuario : paInfoUsuarioActual[12],
             rol_usuario : paInfoUsuarioActual[13],
             estado_usuario : paInfoUsuarioActual[14],
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+};
+
+function actualizarContrasenna(paInfoContrasenna){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/modificar_usuario',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id: paInfoContrasenna[0],
+            contrasenna_usuario : paInfoContrasenna[1],
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+};
+
+function actualizarFirstLog(paInfoLog){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/modificar_usuario',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id: paInfoLog[0],
+           first_log : paInfoLog[1],
         }
       });
     

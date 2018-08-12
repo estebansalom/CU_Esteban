@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
-    <link rel="stylesheet" href="../../css/formularios_sedes.css">
+    <link rel="stylesheet" href="../../css/formularios.css">
     <!-- Si otra hoja de estilos se necesita, se agrega aqui -->
 
 </head>
@@ -24,7 +23,24 @@
         </h1>
         <nav>
             <a href="../landing_page.html">Inicio</a>
-            <a href="#">Perfil</a>
+            <a id="btnPerfil">Perfil</a>
+            <div>
+                <a id="btnBeca">Beca
+                    <span class="fas fa-caret-down"></span>
+                </a>
+                <!-- Agregar esta parte nueva y cambiar el controlador menu -->
+                <ul id="menuBeca" class="menu">
+
+                </ul>
+            </div>
+            <div>
+                <a id="btnReportes">Reportes
+                    <span class="fas fa-caret-down"></span>
+                </a>
+                <ul id="menuReportes" class="menu">
+
+                </ul>
+            </div>
             <div>
                 <a id="btnOpciones">Opciones
                     <span class="fas fa-caret-down"></span>
@@ -78,18 +94,57 @@
         <section id="sct_registrar" class="popup-bg">
             <!-- Formulario que aparece -->
             <form class="popup-content">
-                <h1 class="title">Registrar periodos</h1>
+                <h1 class="title" id="h1">Registrar periodos</h1>
 
                 <div class="form">
+
+                    <input type="hidden" id="txtId">
+
+                    <label for="txtNombre">Nombre</label>
                     <input type="text" id="txtNombre" required placeholder="Nombre del periodo*">
 
-                    <input type="hidden" id="txtEstado" required>
+                    <div id="divEstado" hidden>
+                        <label for="txtEstado">Estado</label>
+                        <select id="txtEstado" required>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                    </div>
 
                     <button type="button" class="button" id="btnRegistrar">Registrar</button>
+                    <button type="button" class="button" id="btnActualizar">Actualizar</button>
                 </div>
             </form>
             <!-- Formulario que aparece -->
         </section>
+        <section id="sct_perfil" class="popup-bg">
+            <div class="popup-content">
+                <h1 id="nombrePerfil"></h1>
+                <div class="perfil">
+                    <div id="img">
+                    </div>
+                    <div class="perfil-info">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sct_contrasenna" class="popup-bg">
+                <div class="popup-content">
+                    <h1>Cambio de Contrasenna</h1>
+                    <div class="form-contrasenna-holder">
+                        <div>
+                            <input type="hidden" id="txtIdContrasenna">
+                            <label for="txtNuevaContrasenna">Contrase;;a</label>
+                            <input type="text" id="txtNuevaContrasenna">
+                            <label for="txtConfirmacion">Confirmacion</label>
+                            <input type="text" id="txtConfirmacion">
+                            <span></span>
+                            <button type="button" id="btnContrasenna" class="boton-contrasenna">Cambiar Contrasenna</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </main>
     <!-- SCRIPTS FIJOS PARA TODOS Dashboards -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>

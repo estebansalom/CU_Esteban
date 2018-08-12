@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/dashboard.css">
-    <link rel="stylesheet" href="../../css/formularios_sedes.css">
+    <link rel="stylesheet" href="../../css/formularios.css">
     <!-- Si otra hoja de estilos se necesita, se agrega aqui -->
 
 </head>
@@ -23,18 +23,37 @@
         </h1>
         <nav>
             <a href="../landing_page.html">Inicio</a>
-            <a href="#">Perfil</a>
+            <a id="btnPerfil">Perfil</a>
+            <div>
+                <a id="btnBeca">Beca
+                    <span class="fas fa-caret-down"></span>
+                </a>
+                <!-- Agregar esta parte nueva y cambiar el controlador menu -->
+                <ul id="menuBeca" class="menu">
+
+                </ul>
+            </div>
+            <div>
+                <a id="btnReportes">Reportes
+                    <span class="fas fa-caret-down"></span>
+                </a>
+                <ul id="menuReportes" class="menu">
+
+                </ul>
+            </div>
             <div>
                 <a id="btnOpciones">Opciones
                     <span class="fas fa-caret-down"></span>
                 </a>
                 <ul id="menuOpciones" class="menu">
-                    
+
                 </ul>
             </div>
             <a id="btnCerrarSesion">Cerrar sesión</a>
         </nav>
     </header>
+    <!-- Fin de lo que deben tener todos los dashboards -->
+    <!-- Fin de lo que deben tener todos los dashboards -->
     <!-- Fin de lo que deben tener todos los dashboards -->
     <!-- Fin de lo que deben tener todos los dashboards -->
 
@@ -73,17 +92,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                
+
                 </tbody>
             </table>
         </section>
         <section id="sct_registrar" class="popup-bg">
             <!-- Formulario que aparece -->
-            <form class="popup-content">
+            <form class="popup-content scroll">
                 <h1 class="title" id="h1">Registrar sedes</h1>
 
                 <div class="form">
-                    
+
                     <input type="hidden" id="txtId">
 
                     <label for="txtNombre">Nombre</label>
@@ -92,19 +111,21 @@
                     <label for="txtDirExacta">Dirección exacta</label>
                     <input type="text" id="txtDirExacta" required placeholder="Dirección exacta de la sede*">
 
+                    <div id="mapa"></div>
+
                     <label for="numLatitud">Latitud</label>
                     <input type="number" id="numLatitud" required placeholder="Latitud de la sede*">
 
                     <label for="numLongitud">Longitud</label>
                     <input type="number" id="numLongitud" required placeholder="Longitud de la sede*">
 
-                   
-                    <div id="divEstado" hidden >
+
+                    <div id="divEstado" hidden>
                         <label for="txtEstado">Estado</label>
-                    <select id="txtEstado" required>
-                        <option value="Activa">Activa</option>
-                        <option value="Inactiva">Inactiva</option>
-                    </select>
+                        <select id="txtEstado" required>
+                            <option value="Activa">Activa</option>
+                            <option value="Inactiva">Inactiva</option>
+                        </select>
                     </div>
 
                     <button type="button" class="button" id="btnRegistrar">Registrar</button>
@@ -113,7 +134,35 @@
             </form>
             <!-- Formulario que aparece -->
         </section>
-        
+        <!-- Todos deben tener esta seccion de perfil -->
+        <section id="sct_perfil" class="popup-bg">
+            <div class="popup-content">
+                <h1 id="nombrePerfil"></h1>
+                <div class="perfil">
+                    <div id="img">
+                    </div>
+                    <div class="perfil-info">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sct_contrasenna" class="popup-bg">
+            <div class="popup-content">
+                <h1>Cambio de Contrasenna</h1>
+                <div class="form-contrasenna-holder">
+                    <div>
+                        <input type="hidden" id="txtIdContrasenna">
+                        <label for="txtNuevaContrasenna">Contrase;;a</label>
+                        <input type="text" id="txtNuevaContrasenna">
+                        <label for="txtConfirmacion">Confirmacion</label>
+                        <input type="text" id="txtConfirmacion">
+                        <span></span>
+                        <button type="button" id="btnContrasenna" class="boton-contrasenna">Cambiar Contrasenna</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <!-- SCRIPTS FIJOS PARA TODOS Dashboards -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
@@ -128,6 +177,8 @@
 
     <!-- Todos los controladores necesarios -->
     <script src="../../js/controlador_menu.js"></script>
+    <script src="../../js/sedes_public/mapa.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIJ2TrApBrLvBsy7Rx-8WNrYfZNO39waQ&callback=initMap"></script>
     <script src="../../js/sedes_public/controlador_sedes.js"></script>
     <!-- Todos los controladores necesarios -->
 
