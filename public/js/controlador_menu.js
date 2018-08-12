@@ -68,13 +68,13 @@ function leerRolOpciones() {
     // En el primer espacio va el nombre de la opcion y en el segundo la ruta
 
     // Estas son las opciones comunes por rol
-    let opcionSede = ['Sedes', '#'];
+    let opcionSede = ['Sedes', '../../html/dashboard/dashboard_sedes.html'];
     let opcionCarreras = ['Carreras', '../../html/dashboard/dashboard_carrera.html'];
     let opcionCursos = ['Cursos', '#'];
     let opcionGrupos = ['Grupos', '#'];
     let opcionLaboratorios = ['Laboratorios', '#'];
-    let opcionUsuarios = ['Usuarios', '#'];
-    let opcionPeriodos = ['Períodos', '#'];
+    let opcionUsuarios = ['Usuarios', '../../html/dashboard/dashboard_usuarios.html'];
+    let opcionPeriodos = ['Períodos', '../../html/dashboard/dashboard_periodos.html'];
     let opcionBitacora = ['Bitácora', '../../html/dashboard/dashboard_bitacora.html'];
     let opcionSolicitud = ['Solicitud', '#'];
 
@@ -280,6 +280,9 @@ function obtenerNuevaContrasenna() {
         infoContrasenna.push(id, sContrasenna);
         actualizarContrasenna(infoContrasenna);
         $('.swal2-confirm').click(function () {
+            let ppContrasenna = document.querySelector('#sct_contrasenna');
+    ppContrasenna.style.display = "none";
+            reload();
         });
     }
 }

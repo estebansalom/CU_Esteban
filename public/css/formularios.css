@@ -220,4 +220,39 @@ input.errorInput, select.errorInput {
     display: block;
     margin-left: 30px;
 }
+
+.div-foto{
+    padding: 30px;
+}
+
+.div-foto> button{
+    position: absolute;
+    padding: 10px; 
+    margin: 47px 60px;
+}
+
+#txtImagenActual{
+    height: 130px;
+    width: 130px;
+}
+
+.imageSettings{
+    height: 100px;
+    width: 100px;
+}
+
+#txtImagen{
+    width: 130px;
+    height: 130px;
+}
+.boton-ver-mas{
+    height: 30px;
+    padding: 0px 10px;
+    color: white;
+    border: none;
+    outline: none;
+    background-color: rgba(77,84,170, .9);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px 2px;
+}
+
 /*  Todos deben tener esta seccion de perfil */

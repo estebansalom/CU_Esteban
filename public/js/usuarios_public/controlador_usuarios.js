@@ -419,10 +419,28 @@ function buscar_por_id() {
     inputCorreo.value = usuario['correo_usuario'];
     inputTelefono.value = usuario['telefono_usuario'];
     inputDireccion.value = usuario['direccion_usuario'];
-    inputProvincia.value = usuario['provincia_usuario'];
-    inputCanton.value = usuario['canton_usuario'];
-    inputDistrito.value = usuario['distrito_usuario'];
     inputRol.value = usuario['rol_usuario'];
+
+    let sProvincia = document.querySelector('#sltProvincia');
+for (let i = 1; i < sProvincia.length; i++) {
+    if (sProvincia.options[i].value == usuario['provincia_usuario']) {
+        sProvincia.selectedIndex = i;
+    }
+}
+llenarCanton();
+let sCanton = document.querySelector('#sltCanton');
+for (let i = 1; i < sCanton.length; i++) {
+    if (sCanton.options[i].value == usuario['canton_usuario']) {
+        sCanton.selectedIndex = i;
+    }
+}
+llenarDistrito();
+let sDistrito = document.querySelector('#sltDistrito');
+for (let i = 1; i < sDistrito.length; i++) {
+    if (sDistrito.options[i].value == usuario['distrito_usuario']) {
+        sDistrito.selectedIndex = i;
+    }
+}
 };
 
 
@@ -532,6 +550,7 @@ function limpiarFormularioRegistrar() {
     inputDistrito.value = "";
     inputRol.value = "";
 };
+
 
 
 function reload() {

@@ -6,7 +6,7 @@ let userSchema = new mongoose.Schema({
     nombre_usuario: { type: String, required: true },
     primer_apellido_usuario: { type: String, required: true },
     segundo_apellido_usuario: { type: String, required: true },
-    cedula_usuario: { type: Number, required: true },
+    cedula_usuario: { type: Number, required: true, unique: true},
     fecha_usuario: { type: String, required: true },
     correo_usuario: { type: String, required: true },
     telefono_usuario: { type: Number, required: true },
