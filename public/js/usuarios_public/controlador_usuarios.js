@@ -101,7 +101,7 @@ function mostrarListaUsuarios(paBuscar) {
 
             //Este es el boton de ver mas info
             let botonVerMas = document.createElement('button');
-            botonVerMas.classList.add('boton-ver-mas');
+            botonVerMas.name = "btnTabla";
             botonVerMas.innerHTML = "Ver mas informacion";
             botonVerMas.dataset._id = listaUsuarios[i]['_id'];
             botonVerMas.addEventListener('click', verMas);
