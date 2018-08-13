@@ -1,4 +1,24 @@
 ﻿'use strict';
+
+window.onload = function(){
+    let infoUsuario = obtener_usuario_por_id(localStorage.getItem('idUsuario'));
+
+    let firstLog = infoUsuario['first_log'];
+    if(firstLog){
+        swal({
+            title: 'Bienvenido a Asistentes Cenfotec',
+            text: 'Por favor, cambie su contraseña.',
+            type: 'info',
+            confirmButtonText: 'Entendido'
+        });
+        $('.swal2-confirm').click(function () {
+            // Aca va la funcion donde aparece lo de cambiar la contrasenna
+            actualizarFirstLog(infoUsuario['_id']);
+        });
+    }
+};
+
+
 let rolActual = localStorage.getItem('rolUsuario');
 leerRolOpciones();
 imprimirInfoPerfil();
@@ -237,15 +257,13 @@ function cambiarFormulario() {
 //cambio de contrase;a
 function obtenerContrasennaActual() {
     let infoUsuarioActual = obtener_usuario_por_id(localStorage.getItem('idUsuario'));
-    console.log(infoUsuarioActual);
-    inputIdContrasenna.value = infoUsuarioActual['_id'];
+    
     inputContrasennaActual.value = infoUsuarioActual['contrasenna_usuario'];
     botonObtenerContrasenna.addEventListener('click', obtenerNuevaContrasenna)
 };
 
 function obtenerNuevaContrasenna() {
     let infoContrasenna = [];
-    let id = inputIdContrasenna.value;
     sContrasenna = inputContrasennaActual.value;
     sConfirmacion = inputConfirmacion.value;
     // validar pequenno
@@ -296,7 +314,6 @@ function verificarContrasenna(sContrasenna, sConfirmacion) {
             inputConfirmacion.classList.remove('errorInput');
             bError = false;
         }
-
     return bError;
 };
 
