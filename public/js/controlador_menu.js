@@ -14,6 +14,8 @@ window.onload = function(){
         $('.swal2-confirm').click(function () {
             // Aca va la funcion donde aparece lo de cambiar la contrasenna
             actualizarFirstLog(infoUsuario['_id']);
+            cambiarFormulario();
+            obtenerContrasennaActual();
         });
     }
 };
@@ -264,6 +266,8 @@ function obtenerContrasennaActual() {
 
 function obtenerNuevaContrasenna() {
     let infoContrasenna = [];
+    let infoUsuario = obtener_usuario_por_id(localStorage.getItem('idUsuario'));
+    let id = infoUsuario['_id'];
     sContrasenna = inputContrasennaActual.value;
     sConfirmacion = inputConfirmacion.value;
     // validar pequenno
