@@ -64,13 +64,6 @@ function mostrarListaPeriodos(paBuscar) {
 
             celdaOpciones.appendChild(botonEliminar);
 
-            // Este es el boton de asociar
-            let botonAsociar = document.createElement('span');
-            botonAsociar.classList.add('fas');
-            botonAsociar.classList.add('fa-link');
-
-            celdaOpciones.appendChild(botonAsociar);
-
             // Icono de editar: <i class="fas fa-cogs"></i>
             // Icono de eliminar: <i class="fas fa-trash-alt"></i>
         }
